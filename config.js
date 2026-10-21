@@ -10,7 +10,7 @@ window.DEMO_CONFIG = {
 
   // OAuth client on the demo org (blank = paste a token in Presenter tools)
   grant: "pkce",                 // "pkce" or "implicit"
-  clientId: "",
+  clientId: "4badbcd5-a6c9-4ce6-910e-1cc0c58d71f0",
   redirectUri: "",               // blank = this page's URL
 
   // Contact Us > Call Me
