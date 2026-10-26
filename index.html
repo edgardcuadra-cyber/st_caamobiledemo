@@ -824,6 +824,10 @@ function cbData(roadside){
     Object.assign(d,{ locationType:(LOCTYPES.find(x=>x[0]===S.locType)||["",""])[1], breakdownAddress:BREAKDOWN.address,
       gpsLat:String(BREAKDOWN.lat), gpsLng:String(BREAKDOWN.lng),
       vehicleType:v.type, vehicleYear:v.year, vehicleMake:v.make, vehicleModel:v.model, vehicleColor:v.color, vehicleDriveLine:v.drive });
+    // S3 agent script (CAA_DEMO_S3_Dispatch) reads these keys as input variables
+    Object.assign(d,{ CAA_MemberName:d.customerName, CAA_MemberNumber:MEMBER.memberNumber, CAA_MemberTier:MEMBER.level,
+      CAA_Authenticated:"true", CAA_AuthMethod:"CAA app login", CAA_Vehicle:d.vehicle, CAA_MemberPhone:cbNumber(),
+      CAA_LocationText:BREAKDOWN.address, CAA_Lat:d.gpsLat, CAA_Long:d.gpsLng, CAA_RsaRequestId:d.rsaRequestId||"" });
   }
   return d;
 }

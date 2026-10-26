@@ -18,8 +18,8 @@ window.DEMO_CONFIG = {
   queueName: "demo_caa_mobileprototype_Oct2026",
 
   // Roadside > Submit Request (blank = uses the member care queue above)
-  roadsideQueueId: "",
-  roadsideQueueName: "",
+  roadsideQueueId: "8600882c-4fc2-49ec-ae3c-854cfba36b9e",
+  roadsideQueueName: "CAA_demo_Dispatch-S3",
 
   // Fallback only; prefer the on-device number in Presenter tools
   callbackNumber: "",
