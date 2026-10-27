@@ -465,8 +465,8 @@ body.app-mode .sheet{top:calc(42px + env(safe-area-inset-top))}
 <script>
 /* ---------------- demo data (fictional member) ---------------- */
 const MEMBER = {
-  name:"Alex", fullName:"Alex Morgan", memberNumber:"620 2794 0000 4417 3", level:"Plus", status:"Active",
-  since:"2014", phone:"+1 416-555-0142", email:"alex.morgan@example.com",
+  name:"Alek", fullName:"Alek Morgan", memberNumber:"620 2794 0000 4417 3", level:"Plus", status:"Active",
+  since:"2014", phone:"+1 437-329-0007", email:"alek.morgan@gmail.com",
   caaDollars:"14.20", fuelSavings:"$48.20", saved:"$126.35", roadsideUsed:"1 of 4",
   vehicle:{type:"Passenger",year:"2025",make:"Mazda",model:"CX-5",color:"Black",drive:"Automatic"},
   address:"205 Thornwillow Ct, Newmarket, ON L3Y 5R3", lat:44.0557697, lng:-79.4393836
@@ -572,7 +572,7 @@ const NAVY="#0f2a43";
 const SCREENS = {
   login(){
     if(S.step===1) return `${statusBar("#2554a3")}<div class="login">
-      <div class="brand"><div class="badge">CAA</div><h2>Verify it's you</h2><p>We sent a code to the phone ending 0142</p></div>
+      <div class="brand"><div class="badge">CAA</div><h2>Verify it's you</h2><p>We sent a code to the phone ending ${MEMBER.phone.slice(-4)}</p></div>
       <div class="card"><div class="mfa"><span>4</span><span>8</span><span>2</span><span>1</span><span>7</span><span>3</span></div>
       <button class="btn primary" data-act="mfa">Verify</button></div></div>`;
     return `${statusBar("#2554a3")}<div class="login">
@@ -832,7 +832,13 @@ function cbData(roadside){
   }
   return d;
 }
-const attrs = () => cbData(false);
+// Web chat (S1): also send email (links the chat to the external contact), mobile phone and the breakdown location
+const attrs = () => {
+  const d = cbData(false), mobile = "+" + MEMBER.phone.replace(/\D/g,"");
+  return Object.assign(d,{ email:MEMBER.email, mobilePhone:mobile, CAA_MemberPhone:d.CAA_MemberPhone||mobile,
+    breakdownAddress:BREAKDOWN.address, gpsLat:String(BREAKDOWN.lat), gpsLng:String(BREAKDOWN.lng),
+    CAA_LocationText:BREAKDOWN.address, CAA_Lat:String(BREAKDOWN.lat), CAA_Long:String(BREAKDOWN.lng) });
+};
 
 /* ---------------- roadside + call me ---------------- */
 async function submitRsa(){

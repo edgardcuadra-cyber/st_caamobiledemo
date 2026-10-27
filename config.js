@@ -23,7 +23,7 @@ window.DEMO_CONFIG = {
 
   // Fallback only; prefer the on-device number in Presenter tools
   callbackNumber: "",
-  callbackUserName: "Alex Morgan",
+  callbackUserName: "Alek Morgan",
 
   // Caller ID shown on the member's phone (blank = queue setting)
   callerId: "",
