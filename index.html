@@ -820,14 +820,15 @@ function cbData(roadside){
   const d = { customerName:MEMBER.fullName, memberNumber:MEMBER.memberNumber.replace(/ /g,""), membershipLevel:MEMBER.level, memberStatus:MEMBER.status, authenticated:"true",
     vehicle:`${v.year} ${v.make} ${v.model} - ${v.color}`, requestedFrom:"mobile_app" };
   if(S.rsa){ d.rsaRequestId=S.rsa.id; d.rsaStatus=S.rsa.status; }
+  // The S3/S4 agent scripts (CAA_DEMO_S3_Dispatch_v*) read these keys as input variables; Call Me lands on the
+  // same script (S4 starts from Call Me), so the member keys go on every callback, not just roadside
+  Object.assign(d,{ CAA_MemberName:d.customerName, CAA_MemberNumber:MEMBER.memberNumber, CAA_MemberTier:MEMBER.level,
+    CAA_Authenticated:"true", CAA_AuthMethod:"CAA app login", CAA_Vehicle:d.vehicle, CAA_MemberPhone:cbNumber() });
   if(roadside){
     Object.assign(d,{ locationType:(LOCTYPES.find(x=>x[0]===S.locType)||["",""])[1], breakdownAddress:BREAKDOWN.address,
       gpsLat:String(BREAKDOWN.lat), gpsLng:String(BREAKDOWN.lng),
       vehicleType:v.type, vehicleYear:v.year, vehicleMake:v.make, vehicleModel:v.model, vehicleColor:v.color, vehicleDriveLine:v.drive });
-    // S3 agent script (CAA_DEMO_S3_Dispatch) reads these keys as input variables
-    Object.assign(d,{ CAA_MemberName:d.customerName, CAA_MemberNumber:MEMBER.memberNumber, CAA_MemberTier:MEMBER.level,
-      CAA_Authenticated:"true", CAA_AuthMethod:"CAA app login", CAA_Vehicle:d.vehicle, CAA_MemberPhone:cbNumber(),
-      CAA_LocationText:BREAKDOWN.address, CAA_Lat:d.gpsLat, CAA_Long:d.gpsLng, CAA_RsaRequestId:d.rsaRequestId||"" });
+    Object.assign(d,{ CAA_LocationText:BREAKDOWN.address, CAA_Lat:d.gpsLat, CAA_Long:d.gpsLng, CAA_RsaRequestId:d.rsaRequestId||"" });
   }
   return d;
 }
