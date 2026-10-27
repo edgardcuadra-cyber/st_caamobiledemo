@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travel insurance (demo)</title>
+<!-- S4 demo page embedded in the agent script (CAA_DEMO_S3_Dispatch_v5 "Travel offer" page).
+     Text follows the CAA_demo_Travel_KB articles A1-A5. The price is a demo example. Not CAA's live site. -->
+<style>
+:root{--navy:#1d2757;--blue:#2554a3;--sky:#e9effa;--gold:#b8922b;--ink:#1b1f2a;--muted:#6a7183;--line:#e3e6ee;--bg:#f3f5f9;--ok:#1f8a4c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 "Open Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{background:var(--navy);color:#fff;padding:14px 18px}
+header .kicker{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#c9d3f0}
+header h1{margin:2px 0 0;font-size:20px}
+header p{margin:6px 0 0;color:#dfe5f7;max-width:70ch}
+main{padding:14px 18px 18px;display:grid;gap:12px}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.card h2{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.card p{margin:0 0 6px}
+.card p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--sky);color:var(--blue);margin-bottom:6px}
+.price{border-left:4px solid var(--gold)}
+.price .amount{font-size:22px;font-weight:700;color:var(--navy)}
+.price .note{color:var(--muted);font-size:12px}
+.save{color:var(--ok);font-weight:600}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;margin:0}
+dt{color:var(--muted)}
+dd{margin:0;font-weight:600}
+footer{padding:0 18px 16px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">CAA Travel Insurance</div>
+  <h1>Going to the United States? Cover the trip before you leave.</h1>
+  <p>Provincial health plans pay only a small part of hospital and doctor bills in the US. Members in good standing save 10% on the premium.</p>
+</header>
+<main>
+  <section class="plans">
+    <article class="card">
+      <span class="tag">Recommended for US trips</span>
+      <h2>Emergency Medical</h2>
+      <p>Up to $10 million CAD for covered emergency costs, such as hospital stays, doctor visits and ambulance services after an unexpected illness or injury.</p>
+      <p>Single trip, or multi-trip with trips of 4, 8, 15, 30 or 60 days each, up to 365 days a year. A higher deductible lowers the premium.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Families with bookings</span>
+      <h2>Vacation Package</h2>
+      <p>Emergency medical coverage plus trip protection in one policy, for families who have prepaid hotels, theme park tickets or other bookings.</p>
+      <p>Single trip, or multi-trip with trips of 4, 8, 15 or 30 days each.</p>
+    </article>
+    <article class="card">
+      <span class="tag">Trip costs only</span>
+      <h2>Trip Cancellation and Interruption</h2>
+      <p>Protects prepaid trip costs if a covered reason forces you to cancel before leaving or come home early. It doesn't include emergency medical coverage.</p>
+    </article>
+  </section>
+  <section class="plans">
+    <article class="card price">
+      <span class="tag">Example quote</span>
+      <h2>Family of four, 8 days in Florida</h2>
+      <div class="amount">about $170</div>
+      <p class="save">after the 10% member saving (about $189 before)</p>
+      <p class="note">Demo example. Actual prices depend on age, trip length, destination and deductible. Quotes are valid for 30 days.</p>
+    </article>
+    <article class="card">
+      <h2>Good to know</h2>
+      <p>Available to members and non-members. The member saving excludes taxes and the Visitors to Canada plan, and a minimum premium applies.</p>
+      <p>Travellers aged 60 and older may need to complete a medical questionnaire.</p>
+    </article>
+    <article class="card">
+      <h2>Buy and get help</h2>
+      <dl>
+        <dt>Buy</dt><dd>Online, in a CAA Store, or 1-800-437-8541</dd>
+        <dt>Emergency, 24/7</dt><dd>1-888-493-0161 (Xodus Travel Services)</dd>
+        <dt>Claims</dt><dd>orionclaims@xodus.ca</dd>
+      </dl>
+    </article>
+  </section>
+</main>
+<footer>Demo page for the CCG RFP technology demonstration. Content summarises CAA's public travel insurance information; the quote is a demo example. CAA Travel Insurance is an Orion Travel Insurance product underwritten by Echelon Insurance; the policy document governs.</footer>
+</body>
+</html>
